@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - VisionPro AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #007AFF;
+            --primary-blue-dark: #0056CC;
+            --accent-purple: #5856D6;
+            --accent-pink: #FF2D92;
+            --success-green: #34C759;
+            --warning-orange: #FF9500;
+            --text-primary: #1D1D1F;
+            --text-secondary: #8E8E93;
+            --bg-primary: #F2F2F7;
+            --bg-secondary: #FFFFFF;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --shadow-heavy: 0 16px 60px rgba(0, 0, 0, 0.16);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+            animation: backgroundShift 15s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundShift {
+            0%, 100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
+            50% { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #a8edea 100%); }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .privacy-card {
+            background: var(--bg-secondary);
+            border-radius: 25px;
+            box-shadow: var(--shadow-heavy);
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: cardEntrance 1s ease-out;
+        }
+        
+        @keyframes cardEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: headerShine 6s ease-in-out infinite;
+        }
+        
+        @keyframes headerShine {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg); }
+        }
+        
+        .header-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+            z-index: 10;
+            position: relative;
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .header-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .header-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            z-index: 10;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+        
+        .last-updated {
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.1), rgba(48, 209, 88, 0.1));
+            border: 1px solid rgba(52, 199, 89, 0.3);
+            border-radius: 12px;
+            padding: 12px 20px;
+            margin: 20px 30px;
+            text-align: center;
+            color: var(--success-green);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .content {
+            padding: 30px;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            animation: sectionFadeIn 0.8s ease-out;
+        }
+        
+        @keyframes sectionFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(0, 122, 255, 0.1);
+        }
+        
+        .section-icon {
+            font-size: 20px;
+        }
+        
+        .section-content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 214, 0.05));
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+        }
+        
+        .data-list {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .data-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .data-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(142, 142, 147, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .data-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .data-list li::before {
+            content: '•';
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .security-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .security-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .security-card-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .security-card-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .security-card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: contactShine 8s ease-in-out infinite;
+        }
+        
+        @keyframes contactShine {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg); }
+        }
+        
+        .contact-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .contact-text {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .contact-email {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .contact-email:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            border-top: 1px solid rgba(142, 142, 147, 0.2);
+        }
+        
+        .footer-logo {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .privacy-card {
+                border-radius: 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header-title {
+                font-size: 28px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .security-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #1C1C1E;
+                --bg-secondary: #2C2C2E;
+                --text-primary: #FFFFFF;
+                --text-secondary: #8E8E93;
+                --glass-bg: rgba(44, 44, 46, 0.8);
+            }
+        }
+        
+        /* Scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary-blue-dark), var(--accent-purple));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="privacy-card">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-icon">🔒</div>
+                <h1 class="header-title">Privacy Policy</h1>
+                <p class="header-subtitle">Your privacy and data security are our top priorities</p>
+            </div>
+            
+            <!-- Last Updated -->
+            <div class="last-updated">
+                📅 Last Updated: December 15, 2024
+            </div>
+            
+            <!-- Content -->
+            <div class="content">
+                <!-- Introduction -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">👁️</span>
+                        Welcome to VisionPro AI
+                    </h2>
+                    <div class="section-content">
+                        <p>At VisionPro AI, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our eye health and vision training application.</p>
+                        
+                        <div class="highlight-box">
+                            <strong>🛡️ Our Promise:</strong> Your health data stays private and secure. We never sell your personal information to third parties, and we use industry-leading security measures to protect your data.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Information We Collect -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">📊</span>
+                        Information We Collect
+                    </h2>
+                    <div class="section-content">
+                        <p>To provide you with personalized eye health insights and training programs, we collect the following types of information:</p>
+                        
+                        <div class="data-list">
+                            <ul>
+                                <li>Eye test results and vision assessment data</li>
+                                <li>Exercise performance and progress tracking</li>
+                                <li>App usage patterns and preferences</li>
+                                <li>Device information (screen size, resolution for accurate testing)</li>
+                                <li>Optional profile information (age, gender for personalized recommendations)</li>
+                                <li>Nutrition tracking and dietary preferences</li>
+                                <li>Screen time and break reminder settings</li>
+                            </ul>
+                        </div>
+                        
+                        <p><strong>Note:</strong> All health data collection is optional, and you can choose which information to share with the app.</p>
+                    </div>
+                </div>
+                
+                <!-- How We Use Your Information -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🎯</span>
+                        How We Use Your Information
+                    </h2>
+                    <div class="section-content">
+                        <p>Your information is used exclusively to enhance your VisionPro AI experience:</p>
+                        
+                        <div class="data-list">
+                            <ul>
+                                <li>Provide personalized eye health recommendations</li>
+                                <li>Track your progress and improvement over time</li>
+                                <li>Customize training difficulty and exercise routines</li>
+                                <li>Send relevant health tips and reminders</li>
+                                <li>Improve app functionality and user experience</li>
+                                <li>Generate comprehensive health reports</li>
+                                <li>Ensure optimal app performance on your device</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Security -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🔐</span>
+                        Data Security & Protection
+                    </h2>
+                    <div class="section-content">
+                        <p>We implement comprehensive security measures to protect your personal information:</p>
+                        
+                        <div class="security-features">
+                            <div class="security-card">
+                                <span class="security-card-icon">🔒</span>
+                                <h3 class="security-card-title">End-to-End Encryption</h3>
+                                <p class="security-card-desc">All data is encrypted both in transit and at rest using industry-standard protocols</p>
+                            </div>
+                            
+                            <div class="security-card">
+                                <span class="security-card-icon">🏠</span>
+                                <h3 class="security-card-title">Local Storage</h3>
+                                <p class="security-card-desc">Most data is stored locally on your device, giving you complete control</p>
+                            </div>
+                            
+                            <div class="security-card">
+                                <span class="security-card-icon">🔐</span>
+                                <h3 class="security-card-title">Secure Servers</h3>
+                                <p class="security-card-desc">Our servers use advanced security protocols and regular security audits</p>
+                            </div>
+                            
+                            <div class="security-card">
+                                <span class="security-card-icon">👤</span>
+                                <h3 class="security-card-title">Anonymous Analytics</h3>
+                                <p class="security-card-desc">Usage analytics are anonymized and cannot be traced back to you</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Your Rights -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">⚖️</span>
+                        Your Privacy Rights
+                    </h2>
+                    <div class="section-content">
+                        <p>You have full control over your personal information and privacy settings:</p>
+                        
+                        <div class="data-list">
+                            <ul>
+                                <li><strong>Access:</strong> View all data we have collected about you</li>
+                                <li><strong>Modify:</strong> Update or correct your personal information</li>
+                                <li><strong>Delete:</strong> Remove your account and all associated data</li>
+                                <li><strong>Export:</strong> Download your data in a portable format</li>
+                                <li><strong>Opt-out:</strong> Disable data collection features at any time</li>
+                                <li><strong>Control:</strong> Manage notification and sharing preferences</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <strong>💡 Easy Controls:</strong> All privacy settings are accessible directly within the app under Settings > Privacy & Data.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Sharing -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🤝</span>
+                        Data Sharing Policy
+                    </h2>
+                    <div class="section-content">
+                        <p>We are committed to keeping your data private and secure. Here's our strict data sharing policy:</p>
+                        
+                        <div class="highlight-box">
+                            <strong>🚫 We Never Share:</strong>
+                            <br>• Personal health data with advertisers
+                            <br>• Individual user information with third parties
+                            <br>• Identifiable data for marketing purposes
+                            <br>• Your email or contact information without consent
+                        </div>
+                        
+                        <p><strong>Limited Sharing:</strong> We only share anonymized, aggregated data for research purposes to improve eye health understanding, and only with your explicit consent.</p>
+                    </div>
+                </div>
+                
+                <!-- Cookies and Tracking -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🍪</span>
+                        Cookies & Tracking
+                    </h2>
+                    <div class="section-content">
+                        <p>VisionPro AI uses minimal tracking to provide the best user experience:</p>
+                        
+                        <div class="data-list">
+                            <ul>
+                                <li>Essential cookies for app functionality and login sessions</li>
+                                <li>Performance cookies to optimize app speed and reliability</li>
+                                <li>Analytics cookies to understand user behavior (anonymized)</li>
+                                <li>No third-party advertising or tracking cookies</li>
+                            </ul>
+                        </div>
+                        
+                        <p>You can manage cookie preferences in your device settings or within the app's privacy controls.</p>
+                    </div>
+                </div>
+                
+                <!-- Children's Privacy -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">👶</span>
+                        Children's Privacy
+                    </h2>
+                    <div class="section-content">
+                        <p>VisionPro AI is designed to be family-friendly while protecting children's privacy:</p>
+                        
+                        <div class="highlight-box">
+                            <strong>🔒 Special Protections for Children:</strong>
+                            <br>• Parental consent required for users under 13
+                            <br>• Limited data collection for minors
+                            <br>• No behavioral advertising to children
+                            <br>• Enhanced security measures for young users
+                        </div>
+                        
+                        <p>Parents can review and manage their child's data through the family settings section of the app.</p>
+                    </div>
+                </div>
+                
+                <!-- Updates to Policy -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🔄</span>
+                        Policy Updates
+                    </h2>
+                    <div class="section-content">
+                        <p>We may update this Privacy Policy periodically to reflect changes in our practices or legal requirements. When we make significant changes:</p>
+                        
+                        <div class="data-list">
+                            <ul>
+                                <li>You'll receive an in-app notification</li>
+                                <li>We'll email you about important changes (if you've provided an email)</li>
+                                <li>The updated policy will be posted on our website</li>
+                                <li>Continued use of the app indicates acceptance of new terms</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-section">
+                    <h2 class="contact-title">Questions About Your Privacy?</h2>
+                    <p class="contact-text">Our privacy team is here to help with any questions or concerns about your data protection.</p>
+                    <a href="mailto:privacy@visionproai.com" class="contact-email">
+                        📧 privacy@visionproai.com
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-logo">👁️ VisionPro AI</div>
+                <p>© 2024 VisionPro AI. All rights reserved.</p>
+                <p>Committed to protecting your vision and your privacy.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Smooth scroll for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animate sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'sectionFadeIn 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Add subtle hover effects to security cards
+        document.querySelectorAll('.security-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Email link interaction feedback
+        const emailLink = document.querySelector('.contact-email');
+        if (emailLink) {
+            emailLink.addEventListener('click', function() {
+                // Brief visual feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-2px)';
+                }, 150);
+            });
+        }
+        
+        console.log('VisionPro AI Privacy Policy - Loaded Successfully 🔒');
+        console.log('Privacy-First Design • User Rights Protected • Data Security Ensured');
+    </script>
+</body>
+</html>
