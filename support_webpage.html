@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionPro AI - Support Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #007AFF;
+            --primary-blue-dark: #0056CC;
+            --accent-purple: #5856D6;
+            --accent-pink: #FF2D92;
+            --success-green: #34C759;
+            --warning-orange: #FF9500;
+            --error-red: #FF3B30;
+            --text-primary: #1D1D1F;
+            --text-secondary: #8E8E93;
+            --bg-primary: #F2F2F7;
+            --bg-secondary: #FFFFFF;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --shadow-heavy: 0 16px 60px rgba(0, 0, 0, 0.16);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            animation: backgroundShift 15s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundShift {
+            0%, 100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
+            33% { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #a8edea 100%); }
+            66% { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 50%, #667eea 100%); }
+        }
+        
+        /* Header Section */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px 0;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            box-shadow: var(--shadow-light);
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+        
+        .brand-info h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        
+        .brand-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: heroTextReveal 1.5s ease-out;
+        }
+        
+        @keyframes heroTextReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero p {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 500;
+            animation: heroTextReveal 1.5s ease-out 0.3s both;
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* Quick Help Section */
+        .quick-help {
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .quick-help h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .help-card {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 214, 0.05));
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(0, 122, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .help-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .help-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--primary-blue);
+        }
+        
+        .help-card:hover::before {
+            opacity: 0.05;
+        }
+        
+        .help-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            z-index: 10;
+            position: relative;
+        }
+        
+        .help-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .help-card p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.6;
+            z-index: 10;
+            position: relative;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .faq-section h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(142, 142, 147, 0.2);
+            padding: 25px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-item:hover {
+            background: rgba(0, 122, 255, 0.02);
+            margin: 0 -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 15px;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0;
+            transition: margin-bottom 0.3s ease;
+        }
+        
+        .faq-toggle {
+            font-size: 24px;
+            color: var(--primary-blue);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .faq-item.active .faq-question {
+            margin-bottom: 15px;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: contactShine 6s ease-in-out infinite;
+        }
+        
+        @keyframes contactShine {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg); }
+        }
+        
+        .contact-section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .contact-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .contact-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .contact-card p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        /* Troubleshooting Section */
+        .troubleshooting {
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .troubleshooting h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .troubleshoot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .troubleshoot-card {
+            background: linear-gradient(135deg, rgba(52, 199, 89, 0.05), rgba(48, 209, 88, 0.05));
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(52, 199, 89, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .troubleshoot-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--success-green);
+        }
+        
+        .troubleshoot-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .step-number {
+            background: var(--success-green);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .help-grid,
+            .troubleshoot-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #1C1C1E;
+                --bg-secondary: #2C2C2E;
+                --text-primary: #FFFFFF;
+                --text-secondary: #8E8E93;
+                --glass-bg: rgba(44, 44, 46, 0.8);
+            }
+            
+            .header,
+            .footer {
+                background: rgba(44, 44, 46, 0.95);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">👁️</div>
+                <div class="brand-info">
+                    <h1>VisionPro AI</h1>
+                    <p>Support Center</p>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#quick-help" class="nav-link">Quick Help</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>How Can We Help?</h1>
+            <p>Find answers, get support, and make the most of your VisionPro AI experience</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Quick Help Section -->
+        <section id="quick-help" class="quick-help">
+            <h2>Quick Help</h2>
+            <div class="help-grid">
+                <div class="help-card" onclick="scrollToSection('getting-started')">
+                    <span class="help-icon">🚀</span>
+                    <h3>Getting Started</h3>
+                    <p>New to VisionPro AI? Learn the basics and start your eye health journey with our step-by-step guide.</p>
+                </div>
+                
+                <div class="help-card" onclick="scrollToSection('games-exercises')">
+                    <span class="help-icon">🎮</span>
+                    <h3>Games & Exercises</h3>
+                    <p>Master the Eye Focus Challenge, Color Memory Match, and all eye exercises for optimal training results.</p>
+                </div>
+                
+                <div class="help-card" onclick="scrollToSection('nutrition-tracking')">
+                    <span class="help-icon">🥗</span>
+                    <h3>Nutrition & Diet</h3>
+                    <p>Learn how to use the nutrition tracker, meal planning, and discover which foods boost your eye health.</p>
+                </div>
+                
+                <div class="help-card" onclick="scrollToSection('progress-tracking')">
+                    <span class="help-icon">📊</span>
+                    <h3>Progress & Analytics</h3>
+                    <p>Understand your statistics, track improvements, and interpret your eye health analytics and reports.</p>
+                </div>
+                
+                <div class="help-card" onclick="scrollToSection('protection-tips')">
+                    <span class="help-icon">🛡️</span>
+                    <h3>Eye Protection</h3>
+                    <p>Set up alerts, monitor screen time, and learn about environmental factors that affect your vision.</p>
+                </div>
+                
+                <div class="help-card" onclick="scrollToSection('account-settings')">
+                    <span class="help-icon">⚙️</span>
+                    <h3>Settings & Account</h3>
+                    <p>Customize your experience, manage notifications, sync data, and personalize your VisionPro AI app.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>How often should I use the eye training games?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For best results, we recommend playing the eye training games 2-3 times daily. Each session should last 5-10 minutes. The Eye Focus Challenge can be played during screen breaks, while the Color Memory Match is perfect for mental warm-ups or cool-downs.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Are the eye exercises safe for everyone?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, our eye exercises are designed to be safe for healthy individuals. However, if you have any existing eye conditions, recent eye surgery, or experience discomfort during exercises, please consult with your eye care professional before continuing.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Can I use VisionPro AI if I wear glasses or contacts?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! VisionPro AI works perfectly with corrective lenses. In fact, wearing your prescribed glasses or contacts during exercises ensures you're training your vision at its optimal clarity level.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>How do I track my progress effectively?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Your progress is automatically tracked in the app. Check your weekly statistics, exercise streaks, and improvement graphs in the Progress section. We recommend reviewing your analytics weekly to see trends and adjust your training routine accordingly.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>What should I do if I experience eye strain?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>If you experience eye strain, take an immediate break and use the 20-20-20 rule: look at something 20 feet away for 20 seconds. Adjust your screen brightness, ensure proper lighting, and consider shorter exercise sessions. If strain persists, consult an eye care professional.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>How do the nutrition recommendations work?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our nutrition section provides evidence-based food recommendations for eye health. Tap any food card to learn about its benefits, add items to your meal planner, and track your daily intake of eye-healthy nutrients like omega-3s, lutein, and vitamins A, C, and E.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting Section -->
+        <section id="troubleshooting" class="troubleshooting">
+            <h2>Troubleshooting Guide</h2>
+            <div class="troubleshoot-grid">
+                <div class="troubleshoot-card">
+                    <h3>🎮 Games Not Responding</h3>
+                    <ul class="step-list">
+                        <li><span class="step-number">1</span>Close and restart the VisionPro AI app completely</li>
+                        <li><span class="step-number">2</span>Check that your device has sufficient available storage (at least 1GB)</li>
+                        <li><span class="step-number">3</span>Ensure you're running the latest version of the app</li>
+                        <li><span class="step-number">4</span>Restart your device if the issue persists</li>
+                        <li><span class="step-number">5</span>Try playing in airplane mode to rule out connectivity issues</li>
+                    </ul>
+                </div>
+                
+                <div class="troubleshoot-card">
+                    <h3>📊 Progress Not Saving</h3>
+                    <ul class="step-list">
+                        <li><span class="step-number">1</span>Verify you're signed in to your VisionPro AI account</li>
+                        <li><span class="step-number">2</span>Check your internet connection for cloud sync</li>
+                        <li><span class="step-number">3</span>Complete exercises fully - don't exit mid-session</li>
+                        <li><span class="step-number">4</span>Manually sync by pulling down in the Progress section</li>
+                        <li><span class="step-number">5</span>Contact support if data loss continues</li>
+                    </ul>
+                </div>
+                
+                <div class="troubleshoot-card">
+                    <h3>⏰ Reminders Not Working</h3>
+                    <ul class="step-list">
+                        <li><span class="step-number">1</span>Check that notifications are enabled in your device settings</li>
+                        <li><span class="step-number">2</span>Verify VisionPro AI has notification permissions</li>
+                        <li><span class="step-number">3</span>Ensure "Do Not Disturb" mode isn't blocking alerts</li>
+                        <li><span class="step-number">4</span>Review your reminder settings within the app</li>
+                        <li><span class="step-number">5</span>Try disabling and re-enabling notifications</li>
+                    </ul>
+                </div>
+                
+                <div class="troubleshoot-card">
+                    <h3>🔧 App Performance Issues</h3>
+                    <ul class="step-list">
+                        <li><span class="step-number">1</span>Close other apps running in the background</li>
+                        <li><span class="step-number">2</span>Lower graphics quality in app settings if available</li>
+                        <li><span class="step-number">3</span>Update to the latest iOS/Android version</li>
+                        <li><span class="step-number">4</span>Free up device storage space (recommend 2GB+)</li>
+                        <li><span class="step-number">5</span>Reinstall the app as a last resort</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Still Need Help?</h2>
+            <p>Our support team is here to help you get the most out of VisionPro AI</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📧 Email Support</h3>
+                    <p>Get detailed help with any questions or issues</p>
+                    <div class="contact-info">support@visionproai.com</div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>💬 Live Chat</h3>
+                    <p>Chat with our team for immediate assistance</p>
+                    <div class="contact-info">Available 24/7</div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>📱 In-App Help</h3>
+                    <p>Access help directly within the VisionPro AI app
